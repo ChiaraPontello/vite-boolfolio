@@ -21,7 +21,12 @@ import { store } from '../store';
             getProjectData(){
                 axios.get(`${this.store.apiBaseUrl}/projects/${this.$route.params.slug}`).then((res)=>{
                     console.log(res.data)
-                    this.project = res.data.results
+                    if(res.data.results){
+                        this.project = res.data.results
+                    }else{
+                        this.$router.push({ name: 'not-found'})
+                    }
+                    
                 })
             }
         },
