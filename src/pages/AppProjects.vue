@@ -1,7 +1,7 @@
 <template>
     <h1>Projects List</h1>
     <ul>
-        <li v-for="project in $store.projects" :key="project.id">{{ project.title }}</li>
+        <li v-for="project in store.projects" :key="project.id">{{ project.title }}</li>
     </ul>
 </template>
 
