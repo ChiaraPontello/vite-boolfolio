@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <h1>Hello</h1>
-  </div>
+  <router-view></router-view>
 </template>
 
 <script>
 import axios from 'axios';
-import {store} from './data/store.js';
+import {store} from './store';
   export default {
     name: "App",
     components:{},
