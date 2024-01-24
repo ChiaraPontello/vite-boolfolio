@@ -1,7 +1,7 @@
 <template>
     <h1>Projects List</h1>
     <ul>
-       <!--<li v-for="project in $store.state.projects" :key="project.id">{{ project.title }}</li> --> 
+        <li v-for="project in $store.projects" :key="project.id">{{ project.title }}</li>
     </ul>
 </template>
 
@@ -19,11 +19,15 @@ import axios from "axios";
             getAllProjects(){
                 axios.get(`${this.store.apiBaseUrl}/projects`).then((res) => {
                     console.log(res.data);
+                    this.store.projects = res.data.results.data;
                 }).catch((err)=>{
-                    
+
                 })
                     
                 }
+            },
+            created(){
+                this.getAllProjects();
             }
         }
     
